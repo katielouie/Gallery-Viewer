@@ -9,3 +9,10 @@ This program can store a piece's:
 - Title
 - Medium
 - Subject
+
+## User Stories
+- As a user, I want to be able to add an artwork to my gallery
+- As a user, I want to be able to view the lists of artworks in mt gallery
+- As a user, I want to be able to view a single artwork in my gallery and view it in detail
+- As a user, I want to be able to sort the gallery by name
+- As a user, I want to be able to organize the gallery by medium or subject
