@@ -1,6 +1,5 @@
 package model;
 
-import org.omg.CosNaming.NamingContextPackage.NotFound;
 
 import java.util.*;
 
@@ -13,14 +12,10 @@ public class Gallery {
 
     // REQUIRES: title, medium, and subject
     // MODIFIES: this
-    // EFFECTS: Adds new piece to gallery and returns if piece was added (returns false if already contains)
-    public boolean addPiece(String title, String medium, String subject) {
-        if (titleId(title) == -1) {
-            ArtPiece newPiece = new ArtPiece(title, medium, subject);
-            gallery.add(newPiece);
-            return true;
-        }
-        return false;
+    // EFFECTS: Adds new piece to gallery
+    public void addPiece(String title, String medium, String subject) {
+        ArtPiece newPiece = new ArtPiece(title, medium, subject);
+        gallery.add(newPiece);
     }
 
     // REQUIRES: ArtPiece ArrayList
@@ -32,18 +27,22 @@ public class Gallery {
     }
 
     // EFFECTS: ArrayList sorted by title
-    public ArrayList<ArtPiece> sortByTitle(ArrayList<ArtPiece> pieces) {
+    public ArrayList<ArtPiece> sortByTitle() {
         ArrayList<ArtPiece> pieces2;
-        pieces2 = (ArrayList<ArtPiece>) pieces.clone();
+        pieces2 = (ArrayList<ArtPiece>) gallery.clone();
         pieces2.sort(new TitleComparator());
         return pieces2;
     }
 
-    public ArrayList<ArtPiece> sortById(ArrayList<ArtPiece> pieces) {
+    public ArrayList<ArtPiece> sortById() {
         ArrayList<ArtPiece> pieces2;
-        pieces2 = (ArrayList<ArtPiece>) pieces.clone();
+        pieces2 = (ArrayList<ArtPiece>) gallery.clone();
         pieces2.sort(new IdComparator());
         return pieces2;
+    }
+
+    public ArrayList<ArtPiece> getGallery() {
+        return gallery;
     }
 
     // EFFECTS: Returns ID of piece with title (Returns -1 if not in list)
@@ -68,10 +67,10 @@ public class Gallery {
     }
 
     // EFFECTS: Returns ArrayList with only a certain medium
-    public ArrayList<ArtPiece> limitByMedium(String medium) {
+    public ArrayList<ArtPiece> filterByMedium(String medium) {
         ArrayList<ArtPiece> mediumList = new ArrayList<>();
         for (ArtPiece piece: gallery) {
-            if (piece.getMedium().equals(medium)) {
+            if (piece.getMedium().equalsIgnoreCase(medium)) {
                 mediumList.add(piece);
             }
         }
@@ -80,15 +79,35 @@ public class Gallery {
     }
 
     // EFFECTS: Returns ArrayList with only a certain subject
-    public ArrayList<ArtPiece> limitBySubject(String subject) {
+    public ArrayList<ArtPiece> filterBySubject(String subject) {
         ArrayList<ArtPiece> subjectList = new ArrayList<>();
         for (ArtPiece piece: gallery) {
-            if (piece.getMedium().equals(subject)) {
+            if (piece.getMedium().equalsIgnoreCase(subject)) {
                 subjectList.add(piece);
             }
         }
         return subjectList;
 
+    }
+
+    // EFFECTS: Returns if there's an artpiece with medium in gallery
+    public boolean containsMedium(String medium) {
+        for (ArtPiece piece: gallery) {
+            if (piece.getMedium().equalsIgnoreCase(medium)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    // EFFECTS: Returns if there's an artpiece with subject in gallery
+    public boolean containsSubject(String subject) {
+        for (ArtPiece piece: gallery) {
+            if (piece.getSubject().equalsIgnoreCase(subject)) {
+                return true;
+            }
+        }
+        return false;
     }
 
 }

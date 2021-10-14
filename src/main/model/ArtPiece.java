@@ -9,6 +9,12 @@ public class ArtPiece {
     private String medium;
     private String subject;
 
+    public ArtPiece(String title) {
+        id = idCount;
+        idCount++;
+        this.title = title;
+    }
+
     public ArtPiece(String title, String medium, String subject) {
         id = idCount;
         idCount++;
