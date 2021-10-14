@@ -174,6 +174,13 @@ public class GalleryApp {
         }
     }
 
+    // EFFECTS: Prints out details (title, medium, subject) of piece`
+    public void displayDetails(ArtPiece artPiece) {
+        System.out.println("Title: " + artPiece.getTitle());
+        System.out.println("Medium: " + artPiece.getMedium());
+        System.out.println("Subject: " + artPiece.getSubject());
+    }
+
     public void detailsMenu() {
         boolean keepGoing = true;
         do {
@@ -184,7 +191,7 @@ public class GalleryApp {
             if (command.equalsIgnoreCase("b")) {
                 keepGoing = false;
             } else if (id != -1) {
-                gallery.pieceById(id).displayDetails();
+                displayDetails(gallery.pieceById(id));
             } else {
                 System.out.println("Title doesn't exist! Please try again");
             }
@@ -208,7 +215,6 @@ public class GalleryApp {
 
     // EFFECTS: displays divider
     public void displayDivider() {
-        String str = "-";
         // string method repeat doesn't work
         for (int i = 0; i < 30; i++) {
             System.out.print("-");

@@ -18,12 +18,8 @@ public class Gallery {
         gallery.add(newPiece);
     }
 
-    // REQUIRES: ArtPiece ArrayList
-    // EFFECTS: Displays titles of all Artpieces in ArrayList by id
-    public void displayListById(ArrayList<ArtPiece> gallery) {
-        for (ArtPiece artPiece: gallery) {
-            System.out.println(artPiece.getTitle());
-        }
+    public void addPiece(ArtPiece artPiece) {
+        gallery.add(artPiece);
     }
 
     // EFFECTS: ArrayList sorted by title
@@ -41,7 +37,7 @@ public class Gallery {
         return pieces2;
     }
 
-    public ArrayList<ArtPiece> getGallery() {
+    public ArrayList<ArtPiece> getGalleryAsArrayList() {
         return gallery;
     }
 
@@ -56,14 +52,14 @@ public class Gallery {
     }
 
     // REQUIRES: valid id
-    // EFFECTS: Returns ArtPiece with ID (Returns -1 if not in list)
+    // EFFECTS: Returns ArtPiece with ID (Returns null if not in list)
     public ArtPiece pieceById(int id) {
         for (ArtPiece piece: gallery) {
             if (piece.getId() == id) {
                 return piece;
             }
         }
-        throw new NoSuchElementException();
+        return null;
     }
 
     // EFFECTS: Returns ArrayList with only a certain medium
@@ -82,7 +78,7 @@ public class Gallery {
     public ArrayList<ArtPiece> filterBySubject(String subject) {
         ArrayList<ArtPiece> subjectList = new ArrayList<>();
         for (ArtPiece piece: gallery) {
-            if (piece.getMedium().equalsIgnoreCase(subject)) {
+            if (piece.getSubject().equalsIgnoreCase(subject)) {
                 subjectList.add(piece);
             }
         }
