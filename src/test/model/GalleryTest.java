@@ -134,6 +134,9 @@ class GalleryTest {
 
     @Test
     void testContainsMedium() {
+        gallery.addPiece(t1, m1, s1);
+        gallery.addPiece(t2, m2, s2);
+        gallery.addPiece(t3, m3, s3);
         m1 = "no";
         assertFalse(gallery.containsMedium(m1));
         gallery.addPiece(t1,m1,s1);
@@ -142,6 +145,9 @@ class GalleryTest {
 
     @Test
     void testContainsSubject() {
+        gallery.addPiece(t1, m1, s1);
+        gallery.addPiece(t2, m2, s2);
+        gallery.addPiece(t3, m3, s3);
         s1 = "s";
         assertFalse(gallery.containsSubject(s1));
         gallery.addPiece(t1,m1,s1);

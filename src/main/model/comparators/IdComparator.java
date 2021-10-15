@@ -1,4 +1,6 @@
-package model;
+package model.comparators;
+
+import model.ArtPiece;
 
 import java.util.Comparator;
 

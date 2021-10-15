@@ -1,5 +1,6 @@
 package model;
 
+import model.comparators.IdComparator;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

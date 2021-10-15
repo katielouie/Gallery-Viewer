@@ -1,6 +1,9 @@
 package model;
 
 
+import model.comparators.IdComparator;
+import model.comparators.TitleComparator;
+
 import java.util.*;
 
 public class Gallery {

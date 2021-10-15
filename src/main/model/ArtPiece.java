@@ -39,19 +39,5 @@ public class ArtPiece {
         return subject;
     }
 
-    public static class IdComparator implements Comparator<ArtPiece> {
-        @Override
-        public int compare(ArtPiece p1, ArtPiece p2) {
-            return p1.getId() - p2.getId();
-        }
-    }
-
-    public static class TitleComparator implements Comparator<ArtPiece> {
-        @Override
-        public int compare(ArtPiece p1, ArtPiece p2) {
-            return p1.getTitle().compareTo(p2.getTitle());
-        }
-    }
-
 }
 
