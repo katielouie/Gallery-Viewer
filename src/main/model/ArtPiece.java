@@ -1,7 +1,5 @@
 package model;
 
-import java.util.Comparator;
-
 public class ArtPiece {
     private static int idCount = 1;
     private final int id;
@@ -17,7 +15,7 @@ public class ArtPiece {
 
     // REQUIRES: 3 strings: title, medium and subject
     // MODIFIES: this
-    // EFFECTS: makes new artpiece
+    // EFFECTS: makes new art piece
     public ArtPiece(String title, String medium, String subject) {
         id = idCount;
         idCount++;

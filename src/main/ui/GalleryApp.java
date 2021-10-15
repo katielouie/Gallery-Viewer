@@ -89,6 +89,7 @@ public class GalleryApp {
         System.out.println(" i: id");
         System.out.println(" t: title");
         System.out.println(" b: go back");
+        System.out.print("Enter your command: ");
     }
 
     // EFFECTS: processes user input for the list menu
@@ -119,6 +120,7 @@ public class GalleryApp {
         System.out.println(" m: medium");
         System.out.println(" s: subject");
         System.out.println(" b: go back");
+        System.out.print("Enter your command: ");
     }
 
     // MODIFIES: this
