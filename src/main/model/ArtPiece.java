@@ -15,6 +15,9 @@ public class ArtPiece {
         idCount = 1;
     }
 
+    // REQUIRES: 3 strings: title, medium and subject
+    // MODIFIES: this
+    // EFFECTS: makes new artpiece
     public ArtPiece(String title, String medium, String subject) {
         id = idCount;
         idCount++;
@@ -23,18 +26,22 @@ public class ArtPiece {
         this.subject = subject;
     }
 
+    // EFFECTS: returns id
     public int getId() {
         return id;
     }
 
+    // EFFECTS: returns Title
     public String getTitle() {
         return title;
     }
 
+    // EFFECTS: returns Medium
     public String getMedium() {
         return medium;
     }
 
+    // EFFECTS: returns Subject
     public String getSubject() {
         return subject;
     }

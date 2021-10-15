@@ -25,7 +25,7 @@ public class Gallery {
         gallery.add(artPiece);
     }
 
-    // EFFECTS: ArrayList sorted by title
+    // EFFECTS: Returns gallery as ArrayList sorted by title
     public ArrayList<ArtPiece> sortByTitle() {
         ArrayList<ArtPiece> pieces2;
         pieces2 = (ArrayList<ArtPiece>) gallery.clone();
@@ -33,6 +33,7 @@ public class Gallery {
         return pieces2;
     }
 
+    // EFFECTS: Returns gallery as arraylist sorted by ID
     public ArrayList<ArtPiece> sortById() {
         ArrayList<ArtPiece> pieces2;
         pieces2 = (ArrayList<ArtPiece>) gallery.clone();
@@ -40,6 +41,7 @@ public class Gallery {
         return pieces2;
     }
 
+    // EFFECTS: Returns gallery as arraylist
     public ArrayList<ArtPiece> getGalleryAsArrayList() {
         return gallery;
     }
@@ -54,8 +56,7 @@ public class Gallery {
         return -1;
     }
 
-    // REQUIRES: valid id
-    // EFFECTS: Returns ArtPiece with ID (Returns null if not in list)
+    // EFFECTS: Returns ArtPiece with ID (Returns null if id is not in list)
     public ArtPiece pieceById(int id) {
         for (ArtPiece piece: gallery) {
             if (piece.getId() == id) {
@@ -74,7 +75,6 @@ public class Gallery {
             }
         }
         return mediumList;
-
     }
 
     // EFFECTS: Returns ArrayList with only a certain subject
