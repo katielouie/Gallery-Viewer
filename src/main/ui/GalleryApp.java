@@ -123,7 +123,6 @@ public class GalleryApp {
         System.out.print("Enter your command: ");
     }
 
-    // MODIFIES: this
     // EFFECTS: processes user input for the filtering menu
     public void filterMenu() {
         boolean keepGoing = true;
@@ -146,6 +145,7 @@ public class GalleryApp {
         }
     }
 
+    // EFFECTS: processes user input to filter by medium
     public void filterMedium() {
         boolean keepGoing = true;
         while (keepGoing) {
@@ -161,6 +161,7 @@ public class GalleryApp {
         }
     }
 
+    // EFFECTS: processes user input to filter by subject
     public void filterSubject() {
         boolean keepGoing = true;
         while (keepGoing) {
@@ -183,6 +184,7 @@ public class GalleryApp {
         System.out.println("Subject: " + artPiece.getSubject());
     }
 
+    // EFFECTS: processes user input for the detailing menu
     public void detailsMenu() {
         boolean keepGoing = true;
         do {
@@ -208,7 +210,7 @@ public class GalleryApp {
         }
     }
 
-    // EFFECTS: Displays List of Titles with Id
+    // EFFECTS: Displays List of Titles with id
     public void displayListWithOrdering(ArrayList<ArtPiece> gallery) {
         for (ArtPiece piece : gallery) {
             System.out.println("[" + piece.getId() + "]: " + piece.getTitle());
