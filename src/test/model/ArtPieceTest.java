@@ -6,6 +6,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+// EFFECTS: Tests mehods in Art Piece
 public class ArtPieceTest {
     ArtPiece artPiece;
     String title = "t";

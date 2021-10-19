@@ -1,5 +1,6 @@
 package model;
 
+//EFFECTS: Represents an artpiece with a title, medium, and subject
 public class ArtPiece {
     private static int idCount = 1;
     private final int id;

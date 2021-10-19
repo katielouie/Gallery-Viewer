@@ -6,6 +6,7 @@ import model.comparators.TitleComparator;
 
 import java.util.*;
 
+// EFFECTS: Stores artpieces
 public class Gallery {
     private ArrayList<ArtPiece> gallery;
 

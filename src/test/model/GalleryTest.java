@@ -7,6 +7,7 @@ import java.util.ArrayList;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+// EFFECTS: Test methods in Gallery
 class GalleryTest {
     Gallery gallery;
     String t1, t2, t3;

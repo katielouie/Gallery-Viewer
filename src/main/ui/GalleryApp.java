@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 import java.lang.String;
 
+// EFFECTS: Displays Instructions and processes user input
 public class GalleryApp {
     Gallery gallery = new Gallery();
     Scanner in = new Scanner(System.in);
@@ -107,6 +108,7 @@ public class GalleryApp {
                     break;
                 case "b":
                     keepGoing = false;
+                    break;
                 default:
                     System.out.println("Invalid input, try again");
             }
