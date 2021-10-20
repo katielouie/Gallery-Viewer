@@ -17,7 +17,6 @@ class GalleryTest {
     @BeforeEach
     public void setup() {
         ArtPiece reset = new ArtPiece(t1,t2,t3);
-        reset.resetId();
         gallery = new Gallery();
         t1 = "0";
         t2 = "0";
@@ -33,9 +32,9 @@ class GalleryTest {
     @Test
     public void testAddPiece() {
         gallery.addPiece("t1", "m1", "s1");
-        assertEquals("t1", gallery.pieceById(1).getTitle());
-        assertEquals("m1", gallery.pieceById(1).getMedium());
-        assertEquals("s1", gallery.pieceById(1).getSubject());
+        assertEquals("t1", gallery.pieceByIndex(0).getTitle());
+        assertEquals("m1", gallery.pieceByIndex(0).getMedium());
+        assertEquals("s1", gallery.pieceByIndex(0).getSubject());
     }
 
     @Test
@@ -86,18 +85,18 @@ class GalleryTest {
         t2 = "b";
         gallery.addPiece(t1, m1, s1);
         gallery.addPiece(t2, m2, s2);
-        assertEquals(1, gallery.titleId(t1));
-        assertEquals(2, gallery.titleId(t2));
-        assertEquals(-1, gallery.titleId("weeeeeeeeee"));
+        assertEquals(1, gallery.titleIndex(t1));
+        assertEquals(2, gallery.titleIndex(t2));
+        assertEquals(-1, gallery.titleIndex("weeeeeeeeee"));
 
     }
 
     @Test
-    void testPieceById() {
+    void testPieceByIndex() {
         ArtPiece artPiece = new ArtPiece(t1, m2, s3);
         gallery.addPiece(artPiece);
-        assertEquals(artPiece, gallery.pieceById(1));
-        assertNull(gallery.pieceById(5));
+        assertEquals(artPiece, gallery.pieceByIndex(0));
+        assertNull(gallery.pieceByIndex(4));
     }
 
     @Test

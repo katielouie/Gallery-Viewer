@@ -1,7 +1,6 @@
 package model;
 
 
-import model.comparators.IdComparator;
 import model.comparators.TitleComparator;
 
 import java.util.*;
@@ -38,7 +37,6 @@ public class Gallery {
     public ArrayList<ArtPiece> sortById() {
         ArrayList<ArtPiece> pieces2;
         pieces2 = (ArrayList<ArtPiece>) gallery.clone();
-        pieces2.sort(new IdComparator());
         return pieces2;
     }
 
@@ -48,23 +46,23 @@ public class Gallery {
     }
 
     // EFFECTS: Returns ID of piece with title (Returns -1 if not in list)
-    public int titleId(String title) {
+    public int titleIndex(String title) {
+        int i = 1;
         for (ArtPiece piece: gallery) {
             if (piece.getTitle().equals(title)) {
-                return piece.getId();
+                return i;
             }
+            i++;
         }
         return -1;
     }
 
-    // EFFECTS: Returns ArtPiece with ID (Returns null if id is not in list)
-    public ArtPiece pieceById(int id) {
-        for (ArtPiece piece: gallery) {
-            if (piece.getId() == id) {
-                return piece;
-            }
+    // EFFECTS: Returns ArtPiece with Index (Returns null if id is not in list)
+    public ArtPiece pieceByIndex(int index) {
+        if (index > gallery.size() - 1) {
+            return null;
         }
-        return null;
+        return gallery.get(index);
     }
 
     // EFFECTS: Returns ArrayList with only a certain medium

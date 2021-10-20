@@ -71,10 +71,10 @@ public class GalleryApp {
             displayDivider();
             System.out.print("Enter the title: ");
             title = in.next();
-            if (gallery.titleId(title) != -1) {
+            if (gallery.titleIndex(title) != -1) {
                 System.out.println("Title already exists! Choose another.");
             }
-        } while (gallery.titleId(title) != -1);
+        } while (gallery.titleIndex(title) != -1);
         System.out.print("Enter the medium: ");
         String medium = in.next();
         System.out.print("Enter the subject: ");
@@ -193,11 +193,11 @@ public class GalleryApp {
             displayDivider();
             System.out.print("Enter title of piece or b to go back: ");
             String command = in.next();
-            int id = gallery.titleId(command);
+            int id = gallery.titleIndex(command);
             if (command.equalsIgnoreCase("b")) {
                 keepGoing = false;
             } else if (id != -1) {
-                displayDetails(gallery.pieceById(id));
+                displayDetails(gallery.pieceByIndex(id));
             } else {
                 System.out.println("Title doesn't exist! Please try again");
             }
@@ -214,8 +214,10 @@ public class GalleryApp {
 
     // EFFECTS: Displays List of Titles with id
     public void displayListWithOrdering(ArrayList<ArtPiece> gallery) {
+        int i = 1;
         for (ArtPiece piece : gallery) {
-            System.out.println("[" + piece.getId() + "]: " + piece.getTitle());
+            System.out.println("[" + i + "]: " + piece.getTitle());
+            i++;
         }
     }
 
