@@ -18,3 +18,6 @@ This program can store a piece's:
 - As a user, I want to be able to organize the gallery by medium or subject
 - As a user, I want to be able to be able to save my gallery
 - As a user, when I start the application, I want to be given the option to load my gallery from file.
+
+## Citations
+-Data Persistence is modelled after JsonSerializationDemo from CPSC 210

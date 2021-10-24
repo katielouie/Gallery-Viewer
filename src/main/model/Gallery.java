@@ -2,11 +2,14 @@ package model;
 
 
 import model.comparators.TitleComparator;
+import org.json.JSONArray;
+import org.json.JSONObject;
+import persistence.Writable;
 
 import java.util.*;
 
 // EFFECTS: Stores artpieces
-public class Gallery {
+public class Gallery implements Writable {
     private ArrayList<ArtPiece> gallery;
 
     public Gallery() {
@@ -23,6 +26,13 @@ public class Gallery {
 
     public void addPiece(ArtPiece artPiece) {
         gallery.add(artPiece);
+    }
+
+    // REQUIRES: valid title
+    // MODIFIES: this
+    // EFFECTS: Deletes piece
+    public void deletePiece(String title) {
+        gallery.remove(titleIndex(title) - 1);
     }
 
     // EFFECTS: Returns gallery as ArrayList sorted by title
@@ -108,4 +118,21 @@ public class Gallery {
         return false;
     }
 
+
+    @Override
+    public JSONObject toJson() {
+        JSONObject json = new JSONObject();
+        json.put("gallery", artPiecesToJson());
+        return json;
+    }
+
+    // EFFECTS: Returns Art pieces in Gallery as a JSON array
+    private JSONArray artPiecesToJson() {
+        JSONArray jsonArray = new JSONArray();
+
+        for (ArtPiece artPiece : gallery) {
+            jsonArray.put(artPiece.toJson());
+        }
+        return jsonArray;
+    }
 }

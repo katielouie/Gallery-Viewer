@@ -1,7 +1,10 @@
 package model;
 
+import org.json.JSONObject;
+import persistence.Writable;
+
 //EFFECTS: Represents an artpiece with a title, medium, and subject
-public class ArtPiece {
+public class ArtPiece implements Writable {
     private String title;
     private String medium;
     private String subject;
@@ -30,5 +33,13 @@ public class ArtPiece {
         return subject;
     }
 
+    @Override
+    public JSONObject toJson() {
+        JSONObject json = new JSONObject();
+        json.put("title", title);
+        json.put("medium", medium);
+        json.put("subject", subject);
+        return json;
+    }
 }
 

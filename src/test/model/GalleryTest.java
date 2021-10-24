@@ -153,4 +153,17 @@ class GalleryTest {
         gallery.addPiece(t1,m1,s1);
         assertTrue(gallery.containsSubject(s1));
     }
+
+    @Test
+    void testDelete() {
+        t1 = "a";
+        t2 = "c";
+        t3 = "b";
+        gallery.addPiece(t1, m1, s1);
+        gallery.addPiece(t2, m2, s2);
+        gallery.addPiece(t3, m3, s3);
+        assertTrue(gallery.titleIndex(t2)!=-1);
+        gallery.deletePiece(t2);
+        assertEquals(-1, gallery.titleIndex(t2));
+    }
 }
