@@ -35,6 +35,11 @@ public class Gallery implements Writable {
         gallery.remove(titleIndex(title) - 1);
     }
 
+    // EFFECTS: Returns gallery size
+    public int size() {
+        return gallery.size();
+    }
+
     // EFFECTS: Returns gallery as ArrayList sorted by title
     public ArrayList<ArtPiece> sortByTitle() {
         ArrayList<ArtPiece> pieces2;
