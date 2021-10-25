@@ -10,7 +10,7 @@ import java.util.stream.Stream;
 
 import org.json.*;
 
-// Represents a reader that reads workroom from JSON data stored in file
+// Represents a reader that reads gallery from JSON data stored in file
 public class JsonReader {
     private String source;
 
@@ -19,7 +19,7 @@ public class JsonReader {
         this.source = source;
     }
 
-    // EFFECTS: reads workroom from file and returns it;
+    // EFFECTS: reads gallery from file and returns it;
     // throws IOException if an error occurs reading data from file
     public Gallery read() throws IOException {
         String jsonData = readFile(source);
@@ -38,7 +38,7 @@ public class JsonReader {
         return contentBuilder.toString();
     }
 
-    // EFFECTS: parses workroom from JSON object and returns it
+    // EFFECTS: parses gallery from JSON object and returns it
     private Gallery parseGallery(JSONObject jsonObject) {
         Gallery gallery = new Gallery();
         addArtPieces(gallery, jsonObject);
@@ -46,12 +46,12 @@ public class JsonReader {
     }
 
     // MODIFIES: gallery
-    // EFFECTS: parses thingies from JSON object and adds them to workroom
+    // EFFECTS: parses art piece from JSON object and adds them to gallery
     private void addArtPieces(Gallery gallery, JSONObject jsonObject) {
         JSONArray jsonArray = jsonObject.getJSONArray("gallery");
         for (Object json : jsonArray) {
-            JSONObject nextThingy = (JSONObject) json;
-            addArtPiece(gallery, nextThingy);
+            JSONObject nextArtPiece = (JSONObject) json;
+            addArtPiece(gallery, nextArtPiece);
         }
     }
 
