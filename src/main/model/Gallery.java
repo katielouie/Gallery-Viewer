@@ -24,6 +24,9 @@ public class Gallery implements Writable {
         gallery.add(newPiece);
     }
 
+    // REQUIRES: ArtPiece
+    // MODIFIES: this
+    // EFFECTS: Adds new piece to gallery
     public void addPiece(ArtPiece artPiece) {
         gallery.add(artPiece);
     }

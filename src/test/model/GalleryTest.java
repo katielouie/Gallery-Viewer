@@ -16,7 +16,6 @@ class GalleryTest {
 
     @BeforeEach
     public void setup() {
-        ArtPiece reset = new ArtPiece(t1,t2,t3);
         gallery = new Gallery();
         t1 = "0";
         t2 = "0";
@@ -87,7 +86,7 @@ class GalleryTest {
         gallery.addPiece(t2, m2, s2);
         assertEquals(1, gallery.titleIndex(t1));
         assertEquals(2, gallery.titleIndex(t2));
-        assertEquals(-1, gallery.titleIndex("weeeeeeeeee"));
+        assertEquals(-1, gallery.titleIndex("we"));
 
     }
 
