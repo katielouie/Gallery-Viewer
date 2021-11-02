@@ -32,7 +32,7 @@ public class GalleryApp {
         String command;
         while (keepGoing) {
             mainDisplayMenu();
-            command = in.next().toLowerCase();
+            command = in.nextLine().toLowerCase();
             if (command.equals("q")) {
                 keepGoing = false;
             } else {
@@ -90,15 +90,18 @@ public class GalleryApp {
         do {
             displayDivider();
             System.out.print("Enter the title: ");
-            title = in.next();
+            in.next();
+            title = in.nextLine();
             if (gallery.titleIndex(title) != -1) {
                 System.out.println("Title already exists! Choose another.");
             }
         } while (gallery.titleIndex(title) != -1);
         System.out.print("Enter the medium: ");
-        String medium = in.next();
+        in.next();
+        String medium = in.nextLine();
         System.out.print("Enter the subject: ");
-        String subject = in.next();
+        in.next();
+        String subject = in.nextLine();
         gallery.addPiece(title, medium, subject);
         System.out.println("Piece added! Going back to main menu");
     }
@@ -150,7 +153,7 @@ public class GalleryApp {
         boolean keepGoing = true;
         while (keepGoing) {
             filterDisplayOptions();
-            String command = in.next();
+            String command = in.nextLine();
             switch (command) {
                 case "m":
                     filterMedium();
@@ -173,7 +176,7 @@ public class GalleryApp {
         while (keepGoing) {
             displayDivider();
             System.out.print("Enter medium: ");
-            String command = in.next();
+            String command = in.nextLine();
             if (gallery.containsMedium(command)) {
                 displayList(gallery.filterByMedium(command));
                 keepGoing = false;
@@ -189,7 +192,7 @@ public class GalleryApp {
         while (keepGoing) {
             displayDivider();
             System.out.print("Enter subject: ");
-            String command = in.next();
+            String command = in.nextLine();
             if (gallery.containsSubject(command)) {
                 displayList(gallery.filterBySubject(command));
                 keepGoing = false;
@@ -212,12 +215,12 @@ public class GalleryApp {
         do {
             displayDivider();
             System.out.print("Enter title of piece or b to go back: ");
-            String command = in.next();
+            String command = in.nextLine();
             int id = gallery.titleIndex(command);
             if (command.equalsIgnoreCase("b")) {
                 keepGoing = false;
             } else if (id != -1) {
-                displayDetails(gallery.pieceByIndex(id));
+                displayDetails(gallery.pieceByIndex(id - 1));
             } else {
                 System.out.println("Title doesn't exist! Please try again");
             }
@@ -229,7 +232,7 @@ public class GalleryApp {
         do {
             displayDivider();
             System.out.print("Enter title of the piece you want to delete or b to go back: ");
-            String command = in.next();
+            String command = in.nextLine();
             int id = gallery.titleIndex(command);
             if (command.equalsIgnoreCase("b")) {
                 keepGoing = false;
@@ -256,13 +259,15 @@ public class GalleryApp {
         boolean keepGoing = true;
         while (keepGoing) {
             dataOptions();
-            String command = in.next();
+            String command = in.nextLine();
             switch (command) {
                 case "s":
                     saveGallery();
+                    keepGoing = false;
                     break;
                 case "l":
                     loadGallery();
+                    keepGoing = false;
                     break;
                 case "b":
                     keepGoing = false;

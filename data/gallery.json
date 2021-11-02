@@ -1,5 +1,12 @@
-{"gallery": [{
-    "subject": "3",
-    "medium": "2",
-    "title": "1"
-}]}
+{"gallery": [
+    {
+        "subject": "3",
+        "medium": "2",
+        "title": "1"
+    },
+    {
+        "subject": "Wildlife",
+        "medium": "Digital",
+        "title": "Llama"
+    }
+]}
