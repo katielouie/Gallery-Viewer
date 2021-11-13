@@ -61,6 +61,7 @@ public class JsonReader {
         String title = String.valueOf(jsonObject.getString("title"));
         String medium = String.valueOf(jsonObject.getString("medium"));
         String subject = String.valueOf(jsonObject.getString("subject"));
-        gallery.addPiece(title, medium, subject);
+        String path = String.valueOf(jsonObject.getString("path"));
+        gallery.addPiece(new ArtPiece(title, medium, subject, path));
     }
 }

@@ -2,11 +2,13 @@
     {
         "subject": "3",
         "medium": "2",
-        "title": "1"
+        "title": "1",
+        "path": "./images/1.jpg"
     },
     {
         "subject": "Wildlife",
         "medium": "Digital",
-        "title": "Llama"
+        "title": "Llama",
+        "path": "./images/llama.jpg"
     }
 ]}

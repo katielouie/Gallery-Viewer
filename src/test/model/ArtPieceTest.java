@@ -11,10 +11,11 @@ public class ArtPieceTest {
     String title = "t";
     String medium = "m";
     String subject = "s";
+    String path = "p";
 
     @BeforeEach
     public void setup() {
-        artPiece = new ArtPiece(title,medium,subject);
+        artPiece = new ArtPiece(title,medium,subject,path);
     }
 
     @Test
@@ -22,6 +23,7 @@ public class ArtPieceTest {
         assertEquals(title, artPiece.getTitle());
         assertEquals(subject, artPiece.getSubject());
         assertEquals(medium, artPiece.getMedium());
+        assertEquals(path, artPiece.getPath());
     }
 
     @Test
