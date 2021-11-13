@@ -1,23 +1,26 @@
 package ui;
 
+import model.ArtPiece;
 import model.Gallery;
+import persistence.JsonReader;
+import persistence.JsonWriter;
 
 import javax.swing.*;
 import java.awt.*;
+import java.io.IOException;
 
 public class GalleryUI extends JFrame {
     private static final int WIDTH = 800;
     private static final int HEIGHT = 800;
     private JDesktopPane desktop;
     JPanel listPanel;
-    private DefaultListModel listModel;
-    private JList list;
+    private DefaultListModel<ArtPiece> listModel;
+    private JList<ArtPiece> list;
 
-    Gallery gallery;
 
     //Constructor to make the window
     public GalleryUI() {
-        gallery = new Gallery();
+        Gallery gallery = new Gallery();
 
         desktop = new JDesktopPane();
         setContentPane(desktop);
@@ -27,6 +30,7 @@ public class GalleryUI extends JFrame {
         desktop.setLayout(new BorderLayout());
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         addGalleryPanel();
+        addList();
         setVisible(true);
     }
 
@@ -45,17 +49,22 @@ public class GalleryUI extends JFrame {
     // Add save/Load Buttons
     public void addDataButtons() {
         JPanel btnPnl = new JPanel(new FlowLayout(FlowLayout.LEFT));
+
         JButton saveButton = new JButton("Save");
+        saveButton.addActionListener(e -> save());
+
         JButton loadButton = new JButton("Load");
+        loadButton.addActionListener(e -> load());
+
         btnPnl.add(saveButton);
         btnPnl.add(loadButton);
 
         listPanel.add(btnPnl, BorderLayout.NORTH);
     }
-
+    
     public void addList() {
-        listModel = new DefaultListModel();
-        list = new JList(listModel);
+        listModel = new DefaultListModel<>();
+        list = new JList<>(listModel);
         list.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         list.setSelectedIndex(0);
         //list.addListSelectionListener(this);
@@ -75,6 +84,29 @@ public class GalleryUI extends JFrame {
         btnPnl.add(removeButton);
 
         listPanel.add(btnPnl, BorderLayout.SOUTH);
+    }
+
+    public void save() {
+
+    }
+
+    // EFFECTS: Loads gallery from file
+    public void load() {
+        Gallery gallery = new Gallery();
+        final String JSON_GALLERY = "./data/gallery.json";
+        JsonWriter jsonWriter = new JsonWriter(JSON_GALLERY);
+        JsonReader jsonReader = new JsonReader(JSON_GALLERY);
+        try {
+            gallery = jsonReader.read();
+        } catch (IOException e) {
+            System.out.println("Unable to read from file: " + JSON_GALLERY);
+        }
+        for (ArtPiece artPiece: gallery.getGalleryAsArrayList()) {
+            System.out.println(artPiece.getTitle());
+            listModel.addElement(artPiece);
+        }
+
+
     }
 
 

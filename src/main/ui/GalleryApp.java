@@ -12,7 +12,7 @@ import java.lang.String;
 
 // EFFECTS: Displays Instructions and processes user input
 public class GalleryApp {
-    private static final String JSON_STORE = "./data/gallery.json";
+    private static final String JSON_GALLERY = "./data/gallery.json";
 
     Gallery gallery = new Gallery();
     Scanner in = new Scanner(System.in);
@@ -21,8 +21,8 @@ public class GalleryApp {
     private JsonReader jsonReader;
 
     public GalleryApp() {
-        jsonWriter = new JsonWriter(JSON_STORE);
-        jsonReader = new JsonReader(JSON_STORE);
+        jsonWriter = new JsonWriter(JSON_GALLERY);
+        jsonReader = new JsonReader(JSON_GALLERY);
         runGallery();
     }
 
@@ -309,9 +309,9 @@ public class GalleryApp {
             jsonWriter.open();
             jsonWriter.write(gallery);
             jsonWriter.close();
-            System.out.println("Saved to " + JSON_STORE);
+            System.out.println("Saved to " + JSON_GALLERY);
         } catch (FileNotFoundException e) {
-            System.out.println("Unable to write to file: " + JSON_STORE);
+            System.out.println("Unable to write to file: " + JSON_GALLERY);
         }
     }
 
@@ -320,9 +320,8 @@ public class GalleryApp {
     private void loadGallery() {
         try {
             gallery = jsonReader.read();
-            System.out.println("Loaded from " + JSON_STORE);
         } catch (IOException e) {
-            System.out.println("Unable to read from file: " + JSON_STORE);
+            System.out.println("Unable to read from file: " + JSON_GALLERY);
         }
     }
 }

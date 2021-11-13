@@ -41,5 +41,9 @@ public class ArtPiece implements Writable {
         json.put("subject", subject);
         return json;
     }
+    @Override
+    public String toString() {
+        return title;
+    }
 }
 
