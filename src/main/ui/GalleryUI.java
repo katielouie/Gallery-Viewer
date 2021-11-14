@@ -6,8 +6,6 @@ import persistence.JsonReader;
 import persistence.JsonWriter;
 
 import javax.swing.*;
-import javax.swing.event.ListSelectionEvent;
-import javax.swing.event.ListSelectionListener;
 import java.awt.*;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -59,7 +57,6 @@ public class GalleryUI extends JFrame {
     public void addViewPanel() {
         //viewPanel = new JPanel();
         picture = new JLabel();
-        picture.setIcon(new ImageIcon("./images/llama.jpg"));
         picture.setHorizontalAlignment(JLabel.CENTER);
         JScrollPane scrollPane = new JScrollPane(picture);
         desktop.add(scrollPane);
@@ -82,11 +79,10 @@ public class GalleryUI extends JFrame {
     }
 
     public void addList() {
-        listModel = new DefaultListModel<>();
+        //listModel = new DefaultListModel<>();
         list = new JList<>(listModel);
         list.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         list.setSelectedIndex(0);
-        //list.addListSelectionListener(this);
         list.setVisibleRowCount(5);
         list.addListSelectionListener(e -> update());
         JScrollPane listScrollPane = new JScrollPane(list);
@@ -105,18 +101,62 @@ public class GalleryUI extends JFrame {
         JPanel btnPnl = new JPanel(new FlowLayout(FlowLayout.LEFT));
         JButton addButton = new JButton("Add");
         JButton removeButton = new JButton("Remove");
+        addButton.addActionListener(e -> addMenu());
         btnPnl.add(addButton);
         btnPnl.add(removeButton);
+        removeButton.addActionListener(e -> removeArtPiece());
 
         listPanel.add(btnPnl, BorderLayout.SOUTH);
     }
 
-    //Listens to the list
-    public void valueChanged(ListSelectionEvent e) {
+    public void addMenu() {
+        JInternalFrame frame = new JInternalFrame("Add", false, true);
+        JPanel panel = new JPanel();
+        //panel.setLayout(new BoxLayout(panel, BoxLayout.PAGE_AXIS));
+
+        panel.add((new JLabel("Title")));
+        TextField titleField = new TextField(30);
+        panel.add(titleField);
+
+        panel.add((new JLabel("Subject")));
+        TextField subjectField = new TextField(30);
+        panel.add(subjectField);
+
+        panel.add((new JLabel("Medium")));
+        TextField mediumField = new TextField(30);
+        panel.add(mediumField);
+
+        panel.add((new JLabel("Filepath")));
+        TextField pathField = new TextField(30);
+        panel.add(pathField);
+
+        JButton button = new JButton("Add");
+        button.addActionListener(e -> addArtPiece(titleField, subjectField, mediumField, pathField));
+        panel.add(button);
+
+        frame.add(panel);
+        frame.setSize(300,300);
+        desktop.add(frame);
+        frame.show();
     }
 
-    public void addArtPiece() {
+    public void addArtPiece(TextField titleField, TextField subjectField, TextField mediumField, TextField pathField) {
+        String title = titleField.getText();
+        String subject = subjectField.getText();
+        String medium = mediumField.getText();
+        String path = pathField.getText();
+        ArtPiece artPiece = new ArtPiece(title, subject, medium, path);
+        listModel.addElement(artPiece);
+    }
 
+    public void removeArtPiece() {
+        try {
+            listModel.remove(list.getSelectedIndex());
+        } catch (Exception e) {
+            System.out.println("");
+        }
+        picture.setIcon(null);
+        list.updateUI();
     }
 
     public void save() {
@@ -139,6 +179,7 @@ public class GalleryUI extends JFrame {
 
     // EFFECTS: Loads gallery from file
     public void load() {
+        //listModel.clear();
         Gallery gallery = new Gallery();
         JsonReader jsonReader = new JsonReader(JSON_GALLERY);
         try {
