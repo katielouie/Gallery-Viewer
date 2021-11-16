@@ -21,6 +21,7 @@ public class GalleryUI extends JFrame {
 
     private DefaultListModel<ArtPiece> listModel;
     private JList<ArtPiece> list;
+    JScrollPane listScrollPane;
     private JLabel picture;
 
 
@@ -59,7 +60,7 @@ public class GalleryUI extends JFrame {
         picture = new JLabel();
         picture.setHorizontalAlignment(JLabel.CENTER);
         JScrollPane scrollPane = new JScrollPane(picture);
-        desktop.add(scrollPane);
+        desktop.add(scrollPane, BorderLayout.CENTER);
     }
 
     // Add save/Load Buttons
@@ -79,21 +80,21 @@ public class GalleryUI extends JFrame {
     }
 
     public void addList() {
-        //listModel = new DefaultListModel<>();
+        listModel = new DefaultListModel<>();
         list = new JList<>(listModel);
         list.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         list.setSelectedIndex(0);
         list.setVisibleRowCount(5);
         list.addListSelectionListener(e -> update());
-        JScrollPane listScrollPane = new JScrollPane(list);
-
+        listScrollPane = new JScrollPane(list);
         listPanel.add(listScrollPane);
-
     }
 
     protected void update() {
-        ImageIcon icon = new ImageIcon(list.getSelectedValue().getPath());
-        picture.setIcon(icon);
+        if (!list.isSelectionEmpty()) {
+            ImageIcon icon = new ImageIcon(list.getSelectedValue().getPath());
+            picture.setIcon(icon);
+        }
     }
 
     // Add add/remove Buttons
@@ -150,10 +151,8 @@ public class GalleryUI extends JFrame {
     }
 
     public void removeArtPiece() {
-        try {
+        if (!list.isSelectionEmpty()) {
             listModel.remove(list.getSelectedIndex());
-        } catch (Exception e) {
-            System.out.println("");
         }
         picture.setIcon(null);
         list.updateUI();
@@ -163,6 +162,7 @@ public class GalleryUI extends JFrame {
         Gallery gallery = new Gallery();
 
         for (int i = 0; i < listModel.size(); i++) {
+            System.out.println(listModel.elementAt(i).getTitle());
             gallery.addPiece(listModel.elementAt(i));
         }
 
@@ -179,7 +179,7 @@ public class GalleryUI extends JFrame {
 
     // EFFECTS: Loads gallery from file
     public void load() {
-        //listModel.clear();
+        listModel.clear();
         Gallery gallery = new Gallery();
         JsonReader jsonReader = new JsonReader(JSON_GALLERY);
         try {
@@ -190,8 +190,6 @@ public class GalleryUI extends JFrame {
         for (ArtPiece artPiece: gallery.getGalleryAsArrayList()) {
             listModel.addElement(artPiece);
         }
-
-
     }
 
 

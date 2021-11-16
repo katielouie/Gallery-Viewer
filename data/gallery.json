@@ -1,9 +1,21 @@
 {"gallery": [
     {
-        "path": "./images/1.jpg",
-        "subject": "3",
-        "medium": "2",
-        "title": "1"
+        "path": "./images/llama.jpg",
+        "subject": "",
+        "medium": "",
+        "title": ""
+    },
+    {
+        "path": "./images/face.jpg",
+        "subject": "Portrait",
+        "medium": "Digital",
+        "title": "Face"
+    },
+    {
+        "path": "./images/llama.jpg",
+        "subject": "f",
+        "medium": "Wildlife",
+        "title": "Llama"
     },
     {
         "path": "./images/face.jpg",
