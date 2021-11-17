@@ -16,11 +16,5 @@
         "subject": "f",
         "medium": "Wildlife",
         "title": "Llama"
-    },
-    {
-        "path": "./images/face.jpg",
-        "subject": "Digital",
-        "medium": "Portrait",
-        "title": "Face"
     }
 ]}
