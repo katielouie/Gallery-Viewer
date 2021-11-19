@@ -10,6 +10,7 @@ import java.awt.*;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
+// EFFECTS: Makes a Window displaying the gallery
 public class GalleryUI extends JFrame {
     private static final int WIDTH = 800;
     private static final int HEIGHT = 800;

@@ -41,5 +41,16 @@ public class ArtPieceTest {
         assertEquals(subject, artPiece.getSubject());
     }
 
+    @Test
+    public void testSetPath() {
+        artPiece.setPath("n");
+        assertEquals(artPiece.getPath(),"n");
+    }
+
+    @Test
+    public void testToString() {
+        assertEquals(artPiece.toString(),title);
+    }
+
 
 }
