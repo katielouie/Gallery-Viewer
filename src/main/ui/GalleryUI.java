@@ -115,7 +115,6 @@ public class GalleryUI extends JFrame {
     public void addMenu() {
         JInternalFrame frame = new JInternalFrame("Add", false, true);
         JPanel panel = new JPanel();
-        //panel.setLayout(new BoxLayout(panel, BoxLayout.PAGE_AXIS));
 
         panel.add((new JLabel("Title")));
         TextField titleField = new TextField(30);
@@ -197,6 +196,4 @@ public class GalleryUI extends JFrame {
             listModel.addElement(artPiece);
         }
     }
-
-
 }

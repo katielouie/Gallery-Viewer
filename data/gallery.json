@@ -13,8 +13,14 @@
     },
     {
         "path": "./images/llama.jpg",
-        "subject": "f",
+        "subject": "Digital",
         "medium": "Wildlife",
         "title": "Llama"
+    },
+    {
+        "path": "./images/1.jpg",
+        "subject": "Digital",
+        "medium": "Number",
+        "title": "1"
     }
 ]}
