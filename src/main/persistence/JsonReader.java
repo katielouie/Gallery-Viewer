@@ -42,6 +42,7 @@ public class JsonReader {
     private Gallery parseGallery(JSONObject jsonObject) {
         Gallery gallery = new Gallery();
         addArtPieces(gallery, jsonObject);
+        EventLog.getInstance().logEvent(new Event("Loaded Gallery"));
         return gallery;
     }
 

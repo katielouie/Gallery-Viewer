@@ -131,6 +131,7 @@ public class Gallery implements Writable {
     public JSONObject toJson() {
         JSONObject json = new JSONObject();
         json.put("gallery", artPiecesToJson());
+        EventLog.getInstance().logEvent(new Event("Saved Gallery"));
         return json;
     }
 

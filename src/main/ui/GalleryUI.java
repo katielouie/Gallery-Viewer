@@ -1,6 +1,9 @@
 package ui;
 
 import model.ArtPiece;
+import model.Event;
+import model.EventDefaultListModel;
+import model.EventLog;
 import model.Gallery;
 import persistence.JsonReader;
 import persistence.JsonWriter;
@@ -41,6 +44,7 @@ public class GalleryUI extends JFrame {
         setVisible(true);
     }
 
+
     // EFFECTS: Split the screen to add save, load, list, and edit menus
     public void addGalleryPanel() {
         listPanel = new JPanel();
@@ -66,21 +70,36 @@ public class GalleryUI extends JFrame {
     public void addDataButtons() {
         JPanel btnPnl = new JPanel(new FlowLayout(FlowLayout.LEFT));
 
+        JButton quitButton = new JButton("Quit");
+        quitButton.addActionListener(e -> quit());
+
         JButton saveButton = new JButton("Save");
         saveButton.addActionListener(e -> save());
 
         JButton loadButton = new JButton("Load");
         loadButton.addActionListener(e -> load());
 
+        btnPnl.add(quitButton);
         btnPnl.add(saveButton);
         btnPnl.add(loadButton);
 
         listPanel.add(btnPnl, BorderLayout.NORTH);
     }
 
+    private void printEventLog() {
+        for (Event event: EventLog.getInstance()) {
+            System.out.println(event.toString());
+        }
+    }
+
+    private void quit() {
+        printEventLog();
+        System.exit(0);
+    }
+
     // EFFECTS: Add List to ScrollPane
     public void addList() {
-        listModel = new DefaultListModel<>();
+        listModel = new EventDefaultListModel();
         list = new JList<>(listModel);
         list.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         list.setSelectedIndex(0);
@@ -167,7 +186,6 @@ public class GalleryUI extends JFrame {
         Gallery gallery = new Gallery();
 
         for (int i = 0; i < listModel.size(); i++) {
-            System.out.println(listModel.elementAt(i).getTitle());
             gallery.addPiece(listModel.elementAt(i));
         }
 
@@ -195,5 +213,9 @@ public class GalleryUI extends JFrame {
         for (ArtPiece artPiece: gallery.getGalleryAsArrayList()) {
             listModel.addElement(artPiece);
         }
+    }
+
+    public void exit() {
+
     }
 }

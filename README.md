@@ -19,5 +19,27 @@ This program can store a piece's:
 - As a user, I want to be able to be able to save my gallery
 - As a user, when I start the application, I want to be given the option to load my gallery from file.
 
+## Event Logging Sample
+```
+Saved to ./data/gallery.json
+Wed Nov 24 21:43:28 PST 2021
+List was cleared
+Wed Nov 24 21:43:28 PST 2021
+Loaded Gallery
+Wed Nov 24 21:43:28 PST 2021
+Added Artpiece:
+Wed Nov 24 21:43:28 PST 2021
+Added Artpiece: Face
+Wed Nov 24 21:43:28 PST 2021
+Added Artpiece: 1
+Wed Nov 24 21:43:28 PST 2021
+Added Artpiece: Llama
+Wed Nov 24 21:43:44 PST 2021
+Added Artpiece: Face
+Wed Nov 24 21:43:50 PST 2021
+Removed Art Piece: 1
+Wed Nov 24 21:43:54 PST 2021
+Saved Gallery
+```
 ## Citations
 -Data Persistence is modelled after JsonSerializationDemo from CPSC 210
