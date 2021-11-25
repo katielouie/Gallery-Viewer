@@ -66,6 +66,8 @@ public class GalleryUI extends JFrame {
     public void addDataButtons() {
         JPanel btnPnl = new JPanel(new FlowLayout(FlowLayout.LEFT));
 
+        JButton quitButton = new JButton("Quit");
+
         JButton saveButton = new JButton("Save");
         saveButton.addActionListener(e -> save());
 
@@ -74,7 +76,7 @@ public class GalleryUI extends JFrame {
 
         btnPnl.add(saveButton);
         btnPnl.add(loadButton);
-
+        btnPnl.add(quitButton);
         listPanel.add(btnPnl, BorderLayout.NORTH);
     }
 
