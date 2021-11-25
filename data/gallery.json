@@ -1,26 +1,6 @@
-{"gallery": [
-    {
-        "path": "./images/llama.jpg",
-        "subject": "",
-        "medium": "",
-        "title": ""
-    },
-    {
-        "path": "./images/face.jpg",
-        "subject": "Portrait",
-        "medium": "Digital",
-        "title": "Face"
-    },
-    {
-        "path": "./images/llama.jpg",
-        "subject": "Digital",
-        "medium": "dd",
-        "title": "Llama"
-    },
-    {
-        "path": "./images/1.jpg",
-        "subject": "1",
-        "medium": "1",
-        "title": "1"
-    }
-]}
+{"gallery": [{
+    "path": "./images/face.jpg",
+    "subject": "f",
+    "medium": "f",
+    "title": "face"
+}]}
