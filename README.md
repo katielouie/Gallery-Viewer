@@ -23,19 +23,11 @@ This program can store a piece's:
 ```
 Saved to ./data/gallery.json
 Wed Nov 24 21:43:28 PST 2021
-List was cleared
-Wed Nov 24 21:43:28 PST 2021
-Loaded Gallery
-Wed Nov 24 21:43:28 PST 2021
-Added Artpiece:
-Wed Nov 24 21:43:28 PST 2021
-Added Artpiece: Face
+Loaded Gallery                                                   
 Wed Nov 24 21:43:28 PST 2021
 Added Artpiece: 1
 Wed Nov 24 21:43:28 PST 2021
 Added Artpiece: Llama
-Wed Nov 24 21:43:44 PST 2021
-Added Artpiece: Face
 Wed Nov 24 21:43:50 PST 2021
 Removed Art Piece: 1
 Wed Nov 24 21:43:54 PST 2021
@@ -45,7 +37,7 @@ Saved Gallery
 ##Phase 4: Task 3
 ![Uml Diagram](UML_Design_Diagram.jpeg)
 If I had more time to work on the project, I would probably try to:
-- not use the DefaultListModel for the user interface. It does not make good use of the gallery methods I had provided earlier.
+- Not use the DefaultListModel for the user interface. It does not make good use of the gallery methods I had provided earlier.
 - Add more components to GalleryGUI to divide the tasks.
 
 ## Citations

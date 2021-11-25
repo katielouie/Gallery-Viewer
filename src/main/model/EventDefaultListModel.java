@@ -18,7 +18,6 @@ public class EventDefaultListModel extends DefaultListModel<ArtPiece> {
     @Override
     public void clear() {
         super.clear();
-        EventLog.getInstance().logEvent(new Event("List was cleared"));
     }
 
     @Override
