@@ -43,7 +43,7 @@ Saved Gallery
 ```
 
 ##Phase 4: Task 3
-![Uml Diagram](UML_Diagram.jpeg)
+![Uml Diagram](UML_Design_Diagram.jpeg)
 If I had more time to work on the project, I would probably try to:
 - not use the DefaultListModel for the user interface. It does not make good use of the gallery methods I had provided earlier.
 - Add more components to GalleryGUI to divide the tasks.

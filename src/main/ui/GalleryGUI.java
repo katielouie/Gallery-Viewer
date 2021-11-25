@@ -86,14 +86,12 @@ public class GalleryGUI extends JFrame {
         listPanel.add(btnPnl, BorderLayout.NORTH);
     }
 
-    private void printEventLog() {
-        for (Event event: EventLog.getInstance()) {
-            System.out.println(event.toString());
-        }
-    }
 
+
+    // EFFECTS: Calls Print EventLog and quits
     private void quit() {
-        printEventLog();
+        EventDefaultListModel eventDefaultListModel = (EventDefaultListModel) listModel;
+        eventDefaultListModel.printEventLog();
         System.exit(0);
     }
 

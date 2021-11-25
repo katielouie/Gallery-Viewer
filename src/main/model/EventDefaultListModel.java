@@ -26,4 +26,11 @@ public class EventDefaultListModel extends DefaultListModel<ArtPiece> {
         super.addElement(element);
         EventLog.getInstance().logEvent(new Event("Added Artpiece: " + element.getTitle()));
     }
+
+    // EFFECTS: Prints EventLog
+    public void printEventLog() {
+        for (Event event: EventLog.getInstance()) {
+            System.out.println(event.toString());
+        }
+    }
 }
