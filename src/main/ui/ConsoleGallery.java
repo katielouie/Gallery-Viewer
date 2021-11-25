@@ -11,7 +11,7 @@ import java.util.Scanner;
 import java.lang.String;
 
 // EFFECTS: Displays Instructions and processes user input
-public class GalleryApp {
+public class ConsoleGallery {
     private static final String JSON_GALLERY = "./data/gallery.json";
 
     Gallery gallery = new Gallery();
@@ -20,7 +20,7 @@ public class GalleryApp {
     private JsonWriter jsonWriter;
     private JsonReader jsonReader;
 
-    public GalleryApp() {
+    public ConsoleGallery() {
         jsonWriter = new JsonWriter(JSON_GALLERY);
         jsonReader = new JsonReader(JSON_GALLERY);
         runGallery();

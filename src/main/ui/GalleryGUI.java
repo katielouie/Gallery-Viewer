@@ -14,7 +14,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 
 // EFFECTS: Makes a Window displaying the gallery
-public class GalleryUI extends JFrame {
+public class GalleryGUI extends JFrame {
     private static final int WIDTH = 800;
     private static final int HEIGHT = 800;
     private static final String JSON_GALLERY = "./data/gallery.json";
@@ -29,7 +29,7 @@ public class GalleryUI extends JFrame {
 
 
     // EFFECTS: Constructor to make the window
-    public GalleryUI() {
+    public GalleryGUI() {
 
         desktop = new JDesktopPane();
         setContentPane(desktop);
@@ -213,9 +213,5 @@ public class GalleryUI extends JFrame {
         for (ArtPiece artPiece: gallery.getGalleryAsArrayList()) {
             listModel.addElement(artPiece);
         }
-    }
-
-    public void exit() {
-
     }
 }
