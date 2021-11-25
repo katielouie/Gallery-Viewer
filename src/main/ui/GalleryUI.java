@@ -1,6 +1,7 @@
 package ui;
 
 import model.ArtPiece;
+import model.EventDefaultListModel;
 import model.Gallery;
 import persistence.JsonReader;
 import persistence.JsonWriter;
@@ -10,8 +11,7 @@ import java.awt.*;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
-// EFFECTS: Makes a Window displaying the gallery
-public class GalleryUI extends JFrame {
+public class GalleryGUI extends JFrame {
     private static final int WIDTH = 800;
     private static final int HEIGHT = 800;
     private static final String JSON_GALLERY = "./data/gallery.json";
@@ -80,6 +80,12 @@ public class GalleryUI extends JFrame {
         listPanel.add(btnPnl, BorderLayout.NORTH);
     }
 
+    // EFFECTS: Prints EventLog then quits
+    public void quit() {
+        ((EventDefaultListModel) listModel).printEventLog();
+        System.exit(0);
+    }
+
     // EFFECTS: Add List to ScrollPane
     public void addList() {
         listModel = new DefaultListModel<>();
@@ -117,6 +123,7 @@ public class GalleryUI extends JFrame {
     public void addMenu() {
         JInternalFrame frame = new JInternalFrame("Add", false, true);
         JPanel panel = new JPanel();
+        //panel.setLayout(new BoxLayout(panel, BoxLayout.PAGE_AXIS));
 
         panel.add((new JLabel("Title")));
         TextField titleField = new TextField(30);
@@ -198,4 +205,6 @@ public class GalleryUI extends JFrame {
             listModel.addElement(artPiece);
         }
     }
+
+
 }
