@@ -18,9 +18,9 @@
         "title": "Llama"
     },
     {
-        "path": "./images/face.jpg",
-        "subject": "Digital",
-        "medium": "Portrait",
-        "title": "Face"
+        "path": "./images/1.jpg",
+        "subject": "1",
+        "medium": "1",
+        "title": "1"
     }
 ]}
