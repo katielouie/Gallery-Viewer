@@ -34,7 +34,7 @@ Wed Nov 24 21:43:54 PST 2021
 Saved Gallery
 ```
 
-##Phase 4: Task 3
+## UML Diagram
 ![Uml Diagram](UML_Design_Diagram.jpeg)
 If I had more time to work on the project, I would probably try to:
 - Not use the DefaultListModel for the user interface. It does not make good use of the gallery methods I had provided earlier.
